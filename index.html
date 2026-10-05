@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알짜창업 5학년 학급경영 시스템</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+  <div id="app">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="brand-logo">🚀</div>
+        <div class="brand-text">
+          <h1>알짜창업 <span>5학년 학급경영</span></h1>
+          <p class="brand-subtitle">학급 경제 & 기업가정신 게이미피케이션 플랫폼</p>
+        </div>
+      </div>
+
+      <!-- Live Stock Ticker Bar -->
+      <div class="header-ticker" id="headerTicker">
+        <!-- Dynamic ticker items generated via JS -->
+      </div>
+
+      <!-- Controls & Role Switcher -->
+      <div class="header-controls">
+        <div class="mode-toggle-group">
+          <button id="btnTeacherMode" class="mode-btn active" onclick="switchMode('teacher')">
+            <span class="icon">👨‍🏫</span> 교사 모드
+          </button>
+          <button id="btnStudentMode" class="mode-btn" onclick="switchMode('student')">
+            <span class="icon">🎓</span> 학생 모드
+          </button>
+        </div>
+
+        <!-- Student Selector (Visible in Student Mode) -->
+        <div id="studentSelectorContainer" class="student-select-wrapper hidden">
+          <label for="studentSelect">학생 선택:</label>
+          <select id="studentSelect" onchange="selectStudent(this.value)">
+            <!-- Options populated by JS -->
+          </select>
+        </div>
+
+        <button class="btn-reset" onclick="resetAllData()" title="기초 데이터 초기화">
+          🔄 데이터 리셋
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content" id="mainContent">
+      <!-- Views will be dynamically rendered here -->
+    </main>
+
+    <!-- Global Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Modals Container -->
+    <div id="modalOverlay" class="modal-overlay hidden" onclick="closeModalOnOverlay(event)">
+      <div class="modal-card" id="modalCard">
+        <button class="modal-close-btn" onclick="closeModal()">✕</button>
+        <div id="modalContent"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
